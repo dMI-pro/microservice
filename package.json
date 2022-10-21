@@ -1,0 +1,34 @@
+{
+  "name": "zg-microservice-template",
+  "version": "1.1.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/zgpm/zg-microservice-template.git"
+  },
+  "author": "Dmitriy Prokhvataev <dmitriy@zgpm.pro>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/zgpm/zg-microservice-template/issues"
+  },
+  "homepage": "https://gitlab.com/zgpm/zg-microservice-template#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.6.0",
+    "fakerator": "^0.3.6",
+    "joi": "^17.6.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
