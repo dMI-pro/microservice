@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import Fakerator from "fakerator";
 import Joi from "joi";
 import {customerLoggerInfo, customerLoggerError} from "../utils/logger.js";
+import User from "../../views/models/userSchema.js";
 
 const {JWT_SECRET_KEY, ID_USER} = process.env;
 const fakerator = Fakerator();
@@ -47,6 +48,17 @@ class AuthController {
             res.status(500).json(e.message);
             customerLoggerError.log('error', `message:${e.message}; func:auth/validate; code status:500;`);
 
+        }
+    }
+    async create(req, res) {
+        try {
+            const {firstName, lastName, username, password} = req.body
+            const user = await User.create({firstName, lastName, username, password})
+            res.status(200).json(`user created -> ${user._id}`);
+            customerLoggerInfo.log('info', `auth/validate - ${user.first_name}`);
+        } catch (e) {
+            res.status(500).json(e.message);
+            customerLoggerError.log('error', `message:${e.message}; func:auth/validate; code status:500;`);
         }
     }
 }
